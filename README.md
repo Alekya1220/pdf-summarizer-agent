@@ -18,11 +18,3 @@ A Streamlit-based AI app that:
 ✅ Text-to-Speech (gTTS)  
 ✅ Deployable on Streamlit Cloud  
 
----
-
-## 🛠 Installation
-
-Clone the repo:
-```bash
-git clone https://github.com/your-username/pdf-summarizer-agent.git
-cd pdf-summarizer-agent
