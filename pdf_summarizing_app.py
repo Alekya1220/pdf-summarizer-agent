@@ -110,7 +110,7 @@ def summarize_section(text, section_name="Section", language="en"):
     {section_name}:
     {text}
     """
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
             {"role": "system", "content": f"You are a helpful assistant that summarizes documents in {language}."},
@@ -118,19 +118,19 @@ def summarize_section(text, section_name="Section", language="en"):
         ],
         temperature=0.4,
     )
-    return response.choices[0].message["content"]
+    return response.choices[0].message.content
 
 def answer_question(question, context_text, chat_history, language="en"):
     messages = [{"role": "system", "content": f"You are a helpful assistant that answers only based on the PDF content. Reply in {language}."}]
     messages.extend(chat_history)
     messages.append({"role": "user", "content": f"Context:\n{context_text}\n\nQuestion: {question}"})
 
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
         temperature=0.3,
     )
-    return response.choices[0].message["content"]
+    return response.choices[0].message.content
 
 def export_txt(summary):
     return BytesIO(summary.encode("utf-8"))
