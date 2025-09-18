@@ -1,0 +1,10 @@
+streamlit
+pdfplumber
+openai
+python-docx
+speechrecognition
+gTTS
+pydub
+langdetect
+pytesseract
+pillow
